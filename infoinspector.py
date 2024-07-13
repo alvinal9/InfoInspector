@@ -41,7 +41,24 @@ def gather_network_info(domain):
 
 def gather_domain_registration_info(domain):
     try:
+        import whois
         whois_info = whois.whois(domain)
+        
+        # If whois_info is a list, handle each entry
+        if isinstance(whois_info, list):
+            domain_info = []
+            for info in whois_info:
+                domain_info.append({
+                    'registrant_name': info.name,
+                    'registrant_organization': info.org,
+                    'registrant_email': info.email,
+                    'registrant_phone_number': info.phone,
+                    'registration_date': info.creation_date.strftime('%Y-%m-%d %H:%M:%S') if info.creation_date else None,
+                    'expiration_date': info.expiration_date.strftime('%Y-%m-%d %H:%M:%S') if info.expiration_date else None
+                })
+            return domain_info
+        
+        # If whois_info is a single object, handle it directly
         return {
             'registrant_name': whois_info.name,
             'registrant_organization': whois_info.org,
@@ -52,6 +69,7 @@ def gather_domain_registration_info(domain):
         }
     except Exception as e:
         return {'error': str(e)}
+
 
 def gather_ssl_tls_certificate_info(domain):
     try:
@@ -84,7 +102,7 @@ def gather_http_header_info(domain):
 def gather_geolocation_info(domain):
     try:
         ip_address = socket.gethostbyname(domain)
-        reader = geoip2.database.Reader('/home/kali/Desktop/infoinspector/GeoLite2-City_20240709/GeoLite2-City.mmdb')
+        reader = geoip2.database.Reader('GeoLite2-City_20240709/GeoLite2-City.mmdb')
         response = reader.city(ip_address)
         return {
             'country': response.country.name,
