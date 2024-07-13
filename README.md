@@ -90,29 +90,30 @@ To run the domain inspection tool on a Linux system, you will need the following
    ```sh
    git clone https://github.com/alvinal9/InfoInspector.git
    
-4. **Unzip the GeoLite2-City database**:
+4. **Move in the disrectory and unzip the GeoLite2-City database**:
+   Move into the directory tool
+   ```
+   cd infoinspector
+   ```
    Unzip the file GeoLite2-City_20240709 and place it in the specified directory:
    ```sh
    unzip GeoLite2-City_20240709.zip
    ```
    Adjust the path if necessary (infoinspector.py, line 87).
 
-Move into the directory tool
-   ```
-   cd infoinspector
-   ```
-5. **Install required Python packages**:
+   
+6. **Install required Python packages**:
    Use `pip3` to install the necessary packages:
    ```sh
    pip3 install dnspython requests python-whois geoip2 beautifulsoup4
    ```
 
-6. **Make your script executable**:
+7. **Make your script executable**:
    ```sh
    chmod +x infoinspector.py
    ```
 
-7. **Run your script**:
+8. **Run your script**:
    You can run the script directly using:
    ```sh
    python3  infoinspector.py
