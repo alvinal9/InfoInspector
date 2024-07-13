@@ -89,12 +89,13 @@ To run the domain inspection tool on a Linux system, you will need the following
    Clone the repository containing your script:
    ```sh
    git clone https://github.com/alvinal9/InfoInspector.git
-   ```
+   
 4. **Unzip the GeoLite2-City database**:
    Unzip the file GeoLite2-City_20240709 and place it in the specified directory:
    ```sh
-   unzip GeoLite2-City_20240709.zip   ```
-   Adjust the path if necessary (infoinspector.py, line 87) .
+   unzip GeoLite2-City_20240709.zip
+   ```
+   Adjust the path if necessary (infoinspector.py, line 87).
 
 Move into the directory tool
    ```
@@ -114,7 +115,7 @@ Move into the directory tool
 7. **Run your script**:
    You can run the script directly using:
    ```sh
-  python3  infoinspector.py
+   python3  infoinspector.py
    ```
 ### Example Output
 The tool provides detailed output for each domain, including network information, domain registration details, SSL/TLS certificate information, email addresses, geolocation information, HTTP header information, and website structure and content information.
