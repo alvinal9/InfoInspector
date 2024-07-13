@@ -99,7 +99,7 @@ To run the domain inspection tool on a Linux system, you will need the following
    ```sh
    unzip GeoLite2-City_20240709.zip
    ```
-   Adjust the path if necessary (infoinspector.py, line 87).
+   Adjust the path of "GeoLite2-City.mmdb" if required (infoinspector.py, line 87).
 
    
 6. **Install required Python packages**:
